@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurante Manja Bene | Comida Caseira no Bairro Assunção - São Bernardo do Campo</title>
+  <meta name="description" content="Restaurante Manja Bene em São Bernardo do Campo. 19 anos de tradição em comida caseira, o melhor Filé à Parmegiana e a tradicional Feijoada no caldeirão de barro. Peça pelo WhatsApp!">
+  <meta name="theme-color" content="#8D3921">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%238D3921'/><text y='.85em' font-size='65' x='18'>🍲</text></svg>">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Restaurante Manja Bene | Comida Caseira desde 2007 no ABC">
+  <meta property="og:description" content="Dê um olé na sua fome! Pratos fartos, tempero de família, Parmegiana e Feijoada em São Bernardo do Campo. R$ 20 a R$ 40.">
+  <meta property="og:image" content="imagens/imgi_16_631143194_18329893876173474_3403303173034578626_n.webp">
+
+  <!-- Structured Data JSON-LD (Schema.org Restaurant) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Restaurante Manja Bene",
+    "image": "imagens/imgi_16_631143194_18329893876173474_3403303173034578626_n.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Humberto de Alencar Castelo Branco, 3836",
+      "addressLocality": "São Bernardo do Campo",
+      "addressRegion": "SP",
+      "postalCode": "09850-305",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.7214,
+      "longitude": -46.5683
+    },
+    "telephone": "+55-11-93334-7848",
+    "servesCuisine": "Comida Caseira Brasileira",
+    "priceRange": "R$ 20-40",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "11:00",
+        "closes": "15:30"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "746"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts: Bitter, Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       SECTION 01: TOP ANNOUNCEMENT BAR
+       ========================================== -->
+  <aside id="announcement-bar" aria-label="Informações Operacionais">
+    <div class="container bar-content">
+      <span>📍 Av. Humberto de Alencar Castelo Branco, 3836 - Assunção, SBC</span>
+      <span>•</span>
+      <span>⏰ Seg a Sáb: 11h às 15h30</span>
+      <span>•</span>
+      <span>📲 WhatsApp: <a href="https://wa.me/5511933347848" target="_blank" rel="noopener">(11) 93334-7848</a></span>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       SECTION 02: GLOBAL HEADER
+       ========================================== -->
+  <header id="main-header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo" aria-label="Página inicial do Restaurante Manja Bene">
+        <span class="brand-logo-text">Manja Bene</span>
+        <span class="brand-logo-tag">Desde 2007</span>
+      </a>
+
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-links">
+          <li><a href="#flagship-dishes">Campeões</a></li>
+          <li><a href="#daily-menu">Cardápio</a></li>
+          <li><a href="#friction-relief">Almoço sem Fila</a></li>
+          <li><a href="#social-proof">Avaliações (4.6★)</a></li>
+          <li><a href="#location-info">Como Chegar</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://wa.me/5511933347848" target="_blank" rel="noopener" class="btn btn-primary btn-sm direct-wa-btn">
+          📲 Pedir no WhatsApp
+        </a>
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Abrir Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-overlay" class="mobile-nav-overlay"></div>
+  <aside id="mobile-drawer" class="mobile-nav-drawer" aria-label="Menu Mobile">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span class="brand-logo-text">Manja Bene</span>
+        <button id="mobile-close" style="font-size: 1.5rem;" aria-label="Fechar Menu">✕</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#flagship-dishes">🏆 Campeões de Vendas</a></li>
+        <li><a href="#daily-menu">🍲 Cardápio Caseiro</a></li>
+        <li><a href="#friction-relief">📦 Almoço Sem Espera</a></li>
+        <li><a href="#social-proof">⭐ Avaliações no Google</a></li>
+        <li><a href="#location-info">📍 Localização & Horários</a></li>
+      </ul>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+      <a href="https://wa.me/5511933347848" target="_blank" rel="noopener" class="btn btn-primary btn-full direct-wa-btn">
+        📲 Pedir pelo WhatsApp
+      </a>
+      <a href="tel:1145096839" class="btn btn-outline btn-full">
+        📞 Ligar no Fixa: 11 4509-6839
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================
+         SECTION 03: HERO SECTION — "ALMOÇO DE RAÍZ"
+         ========================================== -->
+    <section id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <span class="badge badge-gold">⭐ 4.6 no Google (+740 Avaliações)</span>
+            <span class="badge badge-green">👩‍🍳 Liderança Feminina</span>
+          </div>
+
+          <h1 class="hero-title">
+            Dê um olé na sua fome com o verdadeiro tempero caseiro de São Bernardo.
+          </h1>
+
+          <p class="hero-subtitle">
+            Pratos fartos, feijão apurado no caldeirão de barro e receitas de família preparadas todos os dias no Bairro Assunção. Almoço completo de R$ 20 a R$ 40.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="https://wa.me/5511933347848" target="_blank" rel="noopener" class="btn btn-primary direct-wa-btn">
+              📲 Fazer Pedido no WhatsApp
+            </a>
+            <a href="#daily-menu" class="btn btn-secondary">
+              🍲 Ver Cardápio Completo
+            </a>
+          </div>
+
+          <div class="hero-microcopy">
+            <span>💡</span>
+            <div>
+              <strong>Dica para o Almoço:</strong> Antecipe seu pedido pelo WhatsApp até as 11h30 e receba sem fila ou espera no horário de pico!
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image-frame">
+          <img src="imagens/imgi_16_631143194_18329893876173474_3403303173034578626_n.webp" alt="Feijoada Completa em caldeirão de barro no Restaurante Manja Bene" width="960" height="1200" loading="eager">
+          <div class="hero-image-badge">
+            <strong>🍲 Feijoada Completa no Caldeirão</strong>
+            <span>Com Torresmo Estalando e Acompanhamentos Tradicionais</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 04: CREDIBILITY STRIP (#proof-bar)
+         ========================================== -->
+    <section id="proof-bar" aria-label="Credibilidade do Restaurante">
+      <div class="container proof-grid">
+        <div class="proof-item">
+          <span class="proof-number">19 Anos</span>
+          <span class="proof-label">Tradição Local</span>
+          <span class="proof-sub">Desde 2007 no Assunção</span>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-number">4,6 ⭐</span>
+          <span class="proof-label">Nota no Google</span>
+          <span class="proof-sub">+740 Avaliações Reais</span>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-number">R$ 20-40</span>
+          <span class="proof-label">Preço Justo</span>
+          <span class="proof-sub">Refeição Farta por Pessoa</span>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-number">100%</span>
+          <span class="proof-label">Empreendedoras</span>
+          <span class="proof-sub">Gestão Feminina no ABC</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 05: FLAGSHIP DISHES (#flagship-dishes)
+         ========================================== -->
+    <section id="flagship-dishes">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-gold">🏆 OS FAVORITOS DO ABC</span>
+          <h2>Os Campeões de Vendas que Viraram Tradição em São Bernardo</h2>
+          <p>Quem conhece o Manja Bene já sabe: estes são os pratos que consagraram a nossa cozinha há 19 anos.</p>
+        </div>
+
+        <div class="flagship-grid">
+          <!-- Flagship 1: Parmegiana -->
+          <article class="flagship-card">
+            <div class="flagship-img-wrap">
+              <span class="badge badge-gold flagship-badge-floating">🏆 O Mais Elogiado</span>
+              <img src="imagens/imgi_15_626355847_18346271641235712_7648129020451314336_n.webp" alt="Filé à Parmegiana Especial do Manja Bene" width="960" height="960" loading="lazy">
+            </div>
+            <div class="flagship-body">
+              <h3 class="flagship-title">Filé à Parmegiana Especial</h3>
+              <p class="flagship-desc">
+                Bife macio e suculento, empanado na hora com casquinha crocante, coberto com molho de tomate artesanal da casa e uma camada generosa de queijo derretido borbulhante. Acompanha arroz soltinho e batatas douradas.
+              </p>
+              <div class="flagship-quote">
+                "O melhor bife a parmegiana e a melhor feijoada do ABC." — Avaliação real no Google Maps
+              </div>
+              <div class="flagship-footer">
+                <a href="https://wa.me/5511933347848" target="_blank" rel="noopener" class="btn btn-primary btn-full direct-wa-btn" data-dish="Filé à Parmegiana Especial">
+                  📲 Pedir Parmegiana no WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Flagship 2: Feijoada Completa -->
+          <article class="flagship-card">
+            <div class="flagship-img-wrap">
+              <span class="badge badge-gold flagship-badge-floating">🍲 Quarta e Sábado</span>
+              <img src="imagens/imgi_16_631143194_18329893876173474_3403303173034578626_n.webp" alt="Feijoada completa em caldeirão no Manja Bene" width="960" height="1200" loading="lazy">
+            </div>
+            <div class="flagship-body">
+              <h3 class="flagship-title">Feijoada Completa no Caldeirão</h3>
+              <p class="flagship-desc">
+                Feijoada bem apurada servida no tradicional caldeirão de barro com carnes selecionadas. Acompanha arroz branco fresquinho, couve refogada no alho, farofa crocante, torresmo estalando, fatias de laranja e vinagrete.
+              </p>
+              <div class="flagship-quote">
+                "Uma das melhores feijoadas que já comi! Quantidade generosa, muito saborosa, caldo excelente." — Douglas (Cliente Google)
+              </div>
+              <div class="flagship-footer">
+                <a href="https://wa.me/5511933347848" target="_blank" rel="noopener" class="btn btn-primary btn-full direct-wa-btn" data-dish="Feijoada Completa no Caldeirão">
+                  📲 Garanta Sua Feijoada no WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 06: DAILY MENU GRID (#daily-menu)
+         ========================================== -->
+    <section id="daily-menu">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-green">🍲 CARDÁPIO DIÁRIO</span>
+          <h2>Comida Caseira Feita Todos os Dias com Carinho e Fartura</h2>
+          <p>Opções variadas preparadas diariamente para dar energia ao seu dia com o verdadeiro sabor de casa.</p>
+        </div>
+
+        <div class="menu-filter-bar">
+          <button class="filter-btn active" data-filter="all">Todos os Pratos</button>
+          <button class="filter-btn" data-filter="carne">Carnes & Grelhados</button>
+          <button class="filter-btn" data-filter="especial">Especiais da Casa</button>
+        </div>
+
+        <div class="menu-grid">
+          <!-- Item 1: Strogonoff -->
+          <article class="menu-card" data-category="especial">
+            <img src="imagens/imgi_15_626355847_18346271641235712_7648129020451314336_n.webp" alt="Strogonoff de Frango" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Strogonoff de Frango Cremoso</h3>
+                <span class="price-tag">R$ 25-35</span>
+              </div>
+              <p class="menu-card-desc">Tiras suculentas de frango em molho cremoso aveludado, servido com arroz branco e batata palha crocante.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Strogonoff de Frango">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2: Carne Acebolada -->
+          <article class="menu-card" data-category="carne">
+            <img src="imagens/imgi_14_620953645_17995323755880123_116807535765000355_n.webp" alt="Carne acebolada com farofa" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Carne Acebolada com Farofa</h3>
+                <span class="price-tag">R$ 25-35</span>
+              </div>
+              <p class="menu-card-desc">Picadinho acebolado dourado na chapa com cebolas caramelizadas, farofa temperada de cuscuz e pimentões.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Carne Acebolada com Farofa">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3: Feijão Tropeiro -->
+          <article class="menu-card" data-category="especial">
+            <img src="imagens/imgi_22_654996785_18092153591119741_290851013242901457_n.webp" alt="Feijão Tropeiro" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Feijão Tropeiro Mineiro</h3>
+                <span class="price-tag">R$ 28-38</span>
+              </div>
+              <p class="menu-card-desc">Feijão tropeiro com linguiça artesanal, costelinha suína, torresmo crocante, ovo cozido e couve fresquinha.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Feijão Tropeiro Mineiro">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4: Rabada -->
+          <article class="menu-card" data-category="especial">
+            <img src="imagens/imgi_34_624843401_18110469799581654_7267992317108291417_n.webp" alt="Rabada com agrião" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Rabada com Agrião e Polenta</h3>
+                <span class="price-tag">R$ 30-40</span>
+              </div>
+              <p class="menu-card-desc">Rabada cozida lentamente até soltar do osso em molho rico e encorpado, com agrião e polenta/cuscuz amarelinho.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Rabada com Agrião e Polenta">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 5: Bife com Espaguete -->
+          <article class="menu-card" data-category="carne">
+            <img src="imagens/imgi_5_655494063_18041710967536500_543854245722454366_n.webp" alt="Bife acebolado com espaguete" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Bife com Espaguete à Bolonhesa</h3>
+                <span class="price-tag">R$ 25-35</span>
+              </div>
+              <p class="menu-card-desc">Bifes grandes acebolados grelhados no ponto com espaguete saboroso ao molho bolonhesa caprichado.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Bife com Espaguete à Bolonhesa">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 6: Frango com Polenta -->
+          <article class="menu-card" data-category="especial">
+            <img src="imagens/imgi_6_654691780_18119698147718949_6189827601385921311_n.webp" alt="Frango com polenta cremosa" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Frango Ensopado com Polenta</h3>
+                <span class="price-tag">R$ 22-30</span>
+              </div>
+              <p class="menu-card-desc">Pedaços de frango ensopados e suculentos servidos sobre polenta cremosa bem quentinha.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Frango Ensopado com Polenta">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 7: Panquecas -->
+          <article class="menu-card" data-category="especial">
+            <img src="imagens/imgi_7_652866915_18115839613724262_1877993387241015826_n.webp" alt="Panquecas recheadas" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Panquecas Recheadas da Casa</h3>
+                <span class="price-tag">R$ 22-30</span>
+              </div>
+              <p class="menu-card-desc">Panquecas artesanais recheadas com carne ou frango, cobertas com molho de tomate rústico e queijo ralado gratinado.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Panquecas Recheadas da Casa">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 8: Peixe à Milanesa -->
+          <article class="menu-card" data-category="especial">
+            <img src="imagens/imgi_13_655251255_18112972771599995_4078986723805614130_n.webp" alt="Filé de Peixe à milanesa" class="menu-card-img" loading="lazy">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">Peixe à Milanesa com Arroz de Camarão</h3>
+                <span class="price-tag">R$ 28-38</span>
+              </div>
+              <p class="menu-card-desc">Filé de peixe crocante à milanesa acompanhado de arroz temperado com camarões e azeitonas.</p>
+              <div class="menu-card-footer">
+                <button class="btn btn-outline btn-sm btn-full direct-wa-btn" data-dish="Peixe à Milanesa com Arroz de Camarão">📲 Pedir no WhatsApp</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 07: FRICTION RELIEF (#friction-relief)
+         ========================================== -->
+    <section id="friction-relief">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-gold">⚡ ALMOÇO SEM COMPLICAÇÃO</span>
+          <h2>Como Garantir Seu Almoço Sem Espera no Horário de Pico</h2>
+          <p>Nosso almoço é preparado na hora entre 11h30 e 13h30. Escolha a melhor forma de fazer seu pedido:</p>
+        </div>
+
+        <div class="friction-grid">
+          <!-- Option 1: Pre-Order -->
+          <div class="friction-card highlighted">
+            <span class="badge badge-gold" style="align-self: flex-start;">⭐ RECOMENDADO</span>
+            <div class="friction-icon">📦</div>
+            <h3 class="friction-title">Encomenda Antecipada</h3>
+            <p>Faça seu pedido pelo WhatsApp <strong>até as 11h30</strong>. Seu prato entra na frente da fila de produção e chega quentinho no seu horário exato de almoço!</p>
+            <a href="#" class="btn btn-primary open-preorder-modal" style="margin-top: 12px;">
+              📲 Antecipar Meu Pedido
+            </a>
+          </div>
+
+          <!-- Option 2: Pick-up -->
+          <div class="friction-card">
+            <div class="friction-icon">🛍️</div>
+            <h3 class="friction-title">Retirada no Balcão</h3>
+            <p>Trabalha perto da Av. Castelo Branco? Peça pelo WhatsApp e passe apenas para retirar sua marmita embalada sem pegar fila no balcão.</p>
+            <a href="https://wa.me/5511933347848?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20para%20retirada%20no%20balc%C3%A3o." target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 12px;">
+              🛍️ Pedir Para Retirar
+            </a>
+          </div>
+
+          <!-- Option 3: Dine-In -->
+          <div class="friction-card">
+            <div class="friction-icon">🍽️</div>
+            <h3 class="friction-title">Almoço no Salão</h3>
+            <p>Venha saborear seu prato recém-saído do fogão no ambiente acolhedor do nosso restaurante no Bairro Assunção em São Bernardo do Campo.</p>
+            <a href="#location-info" class="btn btn-outline" style="margin-top: 12px;">
+              📍 Ver Como Chegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 08: SOCIAL PROOF (#social-proof)
+         ========================================== -->
+    <section id="social-proof">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-gold">⭐ OPINIÃO DOS CLIENTES</span>
+          <h2>O Que Diz Quem Já Almoça Conosco Há Anos</h2>
+          <p>Mais de 740 pessoas já deixaram sua avaliação no Google Maps. Veja depoimentos reais:</p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Uma das melhores feijoadas que já comi! Quantidade generosa, muito saborosa, caldo de feijão excelente (não é aquele caldo ralo). Já conheço o lugar há um tempo e minha esposa e eu gostamos muito."
+            </p>
+            <div class="review-author">
+              Douglas
+              <span>• Avaliação no Google</span>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Eu e meus pais já comemos três vezes e todas as vezes nos deliciamos com os pratos do dia!! Comida saborosa, caseira e com um preço bem justo, acessível!"
+            </p>
+            <div class="review-author">
+              Brunna Lopes
+              <span>• 7 avaliações no Google</span>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Boa comida, bons preços e um ótimo atendimento. O melhor bife a parmegiana e a melhor feijoada do ABC."
+            </p>
+            <div class="review-author">
+              Cliente Verificado
+              <span>• Avaliação no Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 09: LOCATION & INFO (#location-info)
+         ========================================== -->
+    <section id="location-info">
+      <div class="container location-grid">
+        <div class="location-details">
+          <span class="badge badge-green">📍 VENHA NOS VISITAR</span>
+          <h2>Venha Conhecer Nosso Restaurante no Bairro Assunção</h2>
+          <p>Estamos localizados em uma das principais avenidas de São Bernardo do Campo, com acesso rápido e estacionamento fácil na região.</p>
+
+          <ul class="location-list">
+            <li>
+              <span>📍</span>
+              <div>
+                <strong>Endereço:</strong><br>
+                Av. Humberto de Alencar Castelo Branco, 3836 - Bairro Assunção, São Bernardo do Campo - SP (CEP 09850-305)
+              </div>
+            </li>
+            <li>
+              <span>⏰</span>
+              <div>
+                <strong>Horário de Funcionamento:</strong><br>
+                Segunda a Sábado, das 11:00 às 15:30 (Almoço)
+              </div>
+            </li>
+            <li>
+              <span>📞</span>
+              <div>
+                <strong>Telefones & Contato:</strong><br>
+                WhatsApp: (11) 93334-7848 | Fixo: (11) 4509-6839
+              </div>
+            </li>
+            <li>
+              <span>💳</span>
+              <div>
+                <strong>Formas de Pagamento:</strong><br>
+                Cartões de Crédito e Débito, Pix e Vouchers de Refeição.
+              </div>
+            </li>
+          </ul>
+
+          <div style="margin-top: 8px;">
+            <a href="https://maps.google.com/?q=Restaurante+Manja+Bene+Av+Humberto+de+Alencar+Castelo+Branco+3836+Sao+Bernardo+do+Campo" target="_blank" rel="noopener" class="btn btn-primary">
+              🗺️ Abrir Rota no Google Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="location-img-frame">
+          <img src="imagens/imgi_44_624330819_18104527804838523_3412029014256556515_n.jpg" alt="Totem físico de entrada do Restaurante Manja Bene em São Bernardo do Campo" width="1080" height="1350" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       SECTION 10: FOOTER (#footer)
+       ========================================== -->
+  <footer id="footer">
+    <div class="container footer-content">
+      <h2 class="footer-title">Fome de comida caseira de verdade? Dê um olé na sua fome!</h2>
+      <p style="color: #E7E5E4;">Faça seu pedido agora mesmo pelo WhatsApp ou venha saborear nosso almoço farto no Bairro Assunção.</p>
+      
+      <a href="https://wa.me/5511933347848" target="_blank" rel="noopener" class="btn btn-primary direct-wa-btn">
+        📲 Pedir pelo WhatsApp: (11) 93334-7848
+      </a>
+
+      <div class="footer-credits">
+        <p><strong>Restaurante Manja Bene</strong> • Desde 2007 em São Bernardo do Campo - SP</p>
+        <p>Empresa orgulhosamente liderada por empreendedoras.</p>
+        <p>© 2026 Restaurante Manja Bene. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MOBILE STICKY CONVERSION BAR
+       ========================================== -->
+  <div class="mobile-sticky-bar">
+    <div class="sticky-info">
+      <span class="sticky-status">🟢 Aberto para Almoço</span>
+      <span class="sticky-hours">Seg-Sáb: 11h às 15h30</span>
+    </div>
+    <a href="https://wa.me/5511933347848" target="_blank" rel="noopener" class="btn btn-primary btn-sm direct-wa-btn">
+      📲 Pedir WhatsApp
+    </a>
+  </div>
+
+  <!-- ==========================================
+       PRE-ORDER WHATSAPP MODAL
+       ========================================== -->
+  <div id="preorder-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="font-size: 1.25rem;">📦 Encomenda Antecipada de Almoço</h3>
+        <button id="modal-close-btn" class="modal-close" aria-label="Fechar">✕</button>
+      </div>
+
+      <p style="font-size: 0.875rem; color: var(--text-secondary);">
+        Faça sua encomenda antes das 11h30 para garantir seu pedido quentinho sem fila ou atrasos!
+      </p>
+
+      <form id="preorder-form" class="modal-form">
+        <div class="form-group">
+          <label for="client-name">Seu Nome (Opcional):</label>
+          <input type="text" id="client-name" placeholder="Ex: Maria Santos">
+        </div>
+
+        <div class="form-group">
+          <label for="select-dish">Escolha o Prato Desejado:</label>
+          <select id="select-dish" required>
+            <option value="Filé à Parmegiana Especial">Filé à Parmegiana Especial (Campeão)</option>
+            <option value="Feijoada Completa no Caldeirão">Feijoada Completa no Caldeirão (Quarta/Sábado)</option>
+            <option value="Strogonoff de Frango Cremoso">Strogonoff de Frango Cremoso</option>
+            <option value="Carne Acebolada com Farofa">Carne Acebolada com Farofa</option>
+            <option value="Feijão Tropeiro Mineiro">Feijão Tropeiro Mineiro</option>
+            <option value="Rabada com Agrião e Polenta">Rabada com Agrião e Polenta</option>
+            <option value="Bife com Espaguete à Bolonhesa">Bife com Espaguete à Bolonhesa</option>
+            <option value="Frango Ensopado com Polenta">Frango Ensopado com Polenta</option>
+            <option value="Panquecas Recheadas da Casa">Panquecas Recheadas da Casa</option>
+            <option value="Peixe à Milanesa com Arroz de Camarão">Peixe à Milanesa com Arroz de Camarão</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-type">Modalidade:</label>
+          <select id="select-type">
+            <option value="Entrega no Endereço (Delivery)">Entrega no Endereço (Delivery)</option>
+            <option value="Retirada no Balcão">Retirada no Balcão (Sem Fila)</option>
+            <option value="Mesa no Salão">Refeição no Salão</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-time">Horário Desejado de Entrega/Retirada:</label>
+          <select id="select-time">
+            <option value="11:30 (Início do almoço)">11:30 (Início do Almoço)</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="client-notes">Observações (Endereço ou preferências):</label>
+          <textarea id="client-notes" rows="2" placeholder="Ex: Entregar na Rua X, 123. Mandar farofa extra."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top: 8px;">
+          📲 Enviar Encomenda no WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Entrypoint -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

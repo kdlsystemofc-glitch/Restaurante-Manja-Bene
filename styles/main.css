@@ -1,0 +1,1182 @@
+/* ==========================================================================
+   RESTAURANTE MANJA BENE — REVISED DESIGN SYSTEM & MOTION ENGINE
+   Client-First Visual Identity based on 19-Year Heritage, Clay Pot Materiality,
+   Couve Green Accents, and Warm Parchment Surfaces.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & CSS VARIABLES
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette — Client Materiality */
+  --bg-warm: #FFFDF2;            /* Warm Sunlit Parchment */
+  --surface-white: #FFFFFF;      /* Crisp White Ceramic Surface */
+  --surface-cream: #FAF6E8;      /* Warm Layered Parchment */
+
+  --primary-terracotta: #8D3921; /* Hand-fired Clay Pot Terracotta (AAA Contrast) */
+  --primary-hover: #6E2814;      /* Deep Clay Dark */
+  --primary-light: #F9EBE0;      /* Soft Terracotta Tint */
+
+  --secondary-gold: #D48B38;     /* Golden Toasted Farofa / Bubbly Cheese */
+  --gold-container: #FEF3C7;     /* Soft Gold Container */
+  --gold-text: #78350F;          /* High Contrast Gold Text */
+  --border-gold: #FDE68A;        /* Gold Highlight Border */
+
+  --accent-green: #1E5336;       /* Fresh Sautéed Couve & Herb Green (AAA) */
+  --green-container: #E8F4EC;    /* Soft Green Container */
+  --green-text: #14532D;         /* High Contrast Green Text */
+
+  --text-primary: #1C1815;      /* Charcoal Ink Text (AAA 17.2:1 Contrast) */
+  --text-secondary: #5C534C;    /* Muted Slate Clay (AA 5.1:1 Contrast) */
+  --text-muted: #78716C;        /* Secondary Muted Text */
+
+  --border-warm: #E8E2D5;       /* Subtle Warm Parchment Border */
+  --border-strong: #D9C5B2;     /* Distinct Terracotta Tinted Border */
+
+  /* Typography Scale */
+  --font-editorial: 'Bitter', Georgia, serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing Scale (8pt Grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(110, 40, 20, 0.04);
+  --shadow-md: 0 4px 16px rgba(110, 40, 20, 0.08);
+  --shadow-lg: 0 12px 36px rgba(110, 40, 20, 0.12);
+  --shadow-terracotta: 0 6px 20px rgba(141, 57, 33, 0.28);
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--bg-warm);
+  color: var(--text-primary);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--bg-warm);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Focus Visible for Accessibility */
+:focus-visible {
+  outline: 3px solid var(--secondary-gold);
+  outline-offset: 3px;
+}
+
+/* Container Utility */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY SYSTEM
+   -------------------------------------------------------------------------- */
+h1, h2, h3, .font-editorial {
+  font-family: var(--font-editorial);
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 4.8vw, 3.5rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--primary-terracotta);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   4. UI COMPONENTS (BUTTONS, BADGES, CARDS)
+   -------------------------------------------------------------------------- */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-normal) var(--ease-standard);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--primary-terracotta);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-terracotta);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(110, 40, 20, 0.35);
+}
+
+.btn-secondary {
+  background-color: var(--surface-white);
+  color: var(--gold-text);
+  border: 2px solid var(--secondary-gold);
+}
+
+.btn-secondary:hover {
+  background-color: var(--gold-container);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--accent-green);
+  border: 2px solid var(--accent-green);
+}
+
+.btn-outline:hover {
+  background-color: var(--green-container);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.badge-gold {
+  background-color: var(--gold-container);
+  color: var(--gold-text);
+  border: 1px solid var(--border-gold);
+}
+
+.badge-green {
+  background-color: var(--green-container);
+  color: var(--green-text);
+}
+
+.badge-terracotta {
+  background-color: var(--primary-light);
+  color: var(--primary-terracotta);
+}
+
+/* --------------------------------------------------------------------------
+   5. TOP ANNOUNCEMENT BAR
+   -------------------------------------------------------------------------- */
+#announcement-bar {
+  background-color: var(--gold-container);
+  border-bottom: 1px solid var(--border-gold);
+  color: var(--gold-text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: var(--space-2) 0;
+  text-align: center;
+}
+
+#announcement-bar .bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+#announcement-bar a {
+  text-decoration: underline;
+  color: var(--gold-text);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   6. GLOBAL HEADER
+   -------------------------------------------------------------------------- */
+#main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 253, 242, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-warm);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brand-logo-text {
+  font-family: var(--font-editorial);
+  font-weight: 800;
+  font-size: 1.625rem;
+  color: var(--primary-terracotta);
+  line-height: 1;
+}
+
+.brand-logo-tag {
+  font-size: 0.75rem;
+  background-color: var(--gold-container);
+  color: var(--gold-text);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+@media (min-width: 992px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.nav-links a:hover {
+  color: var(--primary-terracotta);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-strong);
+  font-size: 1.25rem;
+}
+
+@media (min-width: 992px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+/* Mobile Navigation Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 360px;
+  height: 100vh;
+  background-color: var(--bg-warm);
+  z-index: 2000;
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  transition: right var(--duration-normal) var(--ease-standard);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mobile-nav-drawer.active {
+  right: 0;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.mobile-nav-links a {
+  font-family: var(--font-editorial);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO SECTION — "ALMOÇO DE RAÍZ"
+   -------------------------------------------------------------------------- */
+#hero {
+  padding: var(--space-12) 0 var(--space-16);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-12);
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.hero-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.hero-title {
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-size: 1.1875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 576px) {
+  .hero-ctas {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.hero-microcopy {
+  background-color: var(--gold-container);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-text);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* Hero Dish Image Frame */
+.hero-image-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--primary-terracotta);
+  background-color: var(--surface-white);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.hero-image-frame:hover img {
+  transform: scale(1.03);
+}
+
+.hero-image-badge {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  background-color: rgba(28, 24, 21, 0.92);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-image-badge strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--secondary-gold);
+}
+
+.hero-image-badge span {
+  font-size: 0.8125rem;
+  color: #E8E2D5;
+}
+
+/* --------------------------------------------------------------------------
+   8. SCROLL REVEAL MOTION CHOREOGRAPHY
+   -------------------------------------------------------------------------- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-standard),
+              transform var(--duration-slow) var(--ease-standard);
+  will-change: opacity, transform;
+}
+
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   9. CREDIBILITY & PROOF BAR (#proof-bar)
+   -------------------------------------------------------------------------- */
+#proof-bar {
+  background-color: var(--surface-white);
+  border-top: 1px solid var(--border-warm);
+  border-bottom: 1px solid var(--border-warm);
+  padding: var(--space-8) 0;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .proof-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.proof-item:hover {
+  background-color: var(--bg-warm);
+}
+
+.proof-number {
+  font-family: var(--font-editorial);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--primary-terracotta);
+  line-height: 1;
+}
+
+.proof-label {
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  margin-top: var(--space-1);
+}
+
+.proof-sub {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. FLAGSHIP DISHES SECTION (#flagship-dishes)
+   -------------------------------------------------------------------------- */
+#flagship-dishes {
+  padding: var(--space-16) 0;
+  background-color: var(--bg-warm);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.flagship-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 992px) {
+  .flagship-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.flagship-card {
+  background-color: var(--surface-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-warm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.flagship-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-terracotta);
+}
+
+.flagship-img-wrap {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.flagship-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.flagship-card:hover .flagship-img-wrap img {
+  transform: scale(1.05);
+}
+
+.flagship-badge-floating {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+}
+
+.flagship-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex-grow: 1;
+}
+
+.flagship-title {
+  font-size: 1.625rem;
+}
+
+.flagship-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.flagship-quote {
+  background-color: var(--bg-warm);
+  border-left: 4px solid var(--secondary-gold);
+  padding: var(--space-3) var(--space-4);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.flagship-footer {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   11. DAILY MENU SECTION (#daily-menu)
+   -------------------------------------------------------------------------- */
+#daily-menu {
+  padding: var(--space-16) 0;
+  background-color: var(--surface-white);
+  border-top: 1px solid var(--border-warm);
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.menu-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-warm);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-warm);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background-color: var(--primary-terracotta);
+  color: #FFFFFF;
+  border-color: var(--primary-terracotta);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.menu-card {
+  background-color: var(--bg-warm);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.menu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.menu-card-img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.menu-card-body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex-grow: 1;
+}
+
+.menu-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.menu-card-title {
+  font-size: 1.25rem;
+}
+
+.price-tag {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.0625rem;
+  color: var(--primary-terracotta);
+  background-color: var(--primary-light);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.menu-card-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.menu-card-footer {
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   12. FRICTION RELIEF SECTION (#friction-relief)
+   -------------------------------------------------------------------------- */
+#friction-relief {
+  padding: var(--space-16) 0;
+  background-color: var(--bg-warm);
+}
+
+.friction-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 992px) {
+  .friction-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.friction-card {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.friction-card.highlighted {
+  border: 2px solid var(--secondary-gold);
+  background-color: #FFFDF0;
+}
+
+.friction-icon {
+  font-size: 2rem;
+}
+
+.friction-title {
+  font-size: 1.375rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. SOCIAL PROOF SECTION (#social-proof)
+   -------------------------------------------------------------------------- */
+#social-proof {
+  padding: var(--space-16) 0;
+  background-color: var(--surface-white);
+  border-top: 1px solid var(--border-warm);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.review-card {
+  background-color: var(--bg-warm);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.review-stars {
+  color: #F59E0B;
+  font-size: 1.125rem;
+}
+
+.review-text {
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.review-author {
+  font-weight: 700;
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.review-author span {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   14. LOCATION SECTION (#location-info)
+   -------------------------------------------------------------------------- */
+#location-info {
+  padding: var(--space-16) 0;
+  background-color: var(--bg-warm);
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .location-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.location-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.location-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-2) 0;
+}
+
+.location-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 1.0625rem;
+}
+
+.location-list li strong {
+  color: var(--text-primary);
+}
+
+.location-img-frame {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 3px solid var(--border-strong);
+  max-height: 440px;
+}
+
+.location-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   15. FOOTER (#footer)
+   -------------------------------------------------------------------------- */
+#footer {
+  background-color: var(--text-primary);
+  color: var(--bg-warm);
+  padding: var(--space-12) 0 var(--space-16);
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  color: #FFFFFF;
+  font-size: 2rem;
+}
+
+.footer-text {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.footer-credits {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--space-6);
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   16. MOBILE STICKY CONVERSION BAR
+   -------------------------------------------------------------------------- */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--surface-white);
+  border-top: 2px solid var(--primary-terracotta);
+  padding: 12px 16px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+@media (min-width: 768px) {
+  .mobile-sticky-bar {
+    display: none;
+  }
+}
+
+.sticky-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.sticky-hours {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   17. PRE-ORDER MODAL / DRAWER
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-box {
+  background-color: var(--surface-white);
+  border-radius: var(--radius-xl);
+  max-width: 500px;
+  width: 100%;
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transform: translateY(20px);
+  transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-group label {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.form-group select, .form-group input, .form-group textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-warm);
+}
+
+/* --------------------------------------------------------------------------
+   18. REDUCED MOTION ACCESSIBILITY (WCAG AAA)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
