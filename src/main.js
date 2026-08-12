@@ -1,10 +1,10 @@
 /* ==========================================================================
-   RESTAURANTE MANJA BENE — CINEMATIC INTERACTIVE LOGIC & MOTION ENGINE
+   RESTAURANTE MANJA BENE — BRAZILIAN CANTINA POP INTERACTIVE ENGINE
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Mobile Drawer Navigation Toggle
+  // 1. Mobile Navigation Toggle
   const mobileToggle = document.getElementById('mobile-toggle');
   const mobileDrawer = document.getElementById('mobile-drawer');
   const mobileOverlay = document.getElementById('mobile-overlay');
@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
 
   function openMobileNav() {
-    mobileDrawer.classList.add('active');
-    mobileOverlay.classList.add('active');
+    if (mobileDrawer) mobileDrawer.classList.add('active');
+    if (mobileOverlay) mobileOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileNav() {
-    mobileDrawer.classList.remove('active');
-    mobileOverlay.classList.remove('active');
+    if (mobileDrawer) mobileDrawer.classList.remove('active');
+    if (mobileOverlay) mobileOverlay.classList.remove('active');
     document.body.style.overflow = '';
   }
 
@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileNav);
   mobileLinks.forEach(link => link.addEventListener('click', closeMobileNav));
 
-  // 2. Menu Filter Tabs with Motion Animation
+  // 2. Menu Filter Tabs
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const menuCards = document.querySelectorAll('.menu-card');
+  const menuCards = document.querySelectorAll('.menu-card-pop');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -57,59 +57,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. IntersectionObserver for Scroll Reveal Choreography
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.15
-  };
-
-  const scrollObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.getAttribute('data-delay') || 0;
-        setTimeout(() => {
-          entry.target.classList.add('revealed');
-        }, parseInt(delay, 10));
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Apply reveal class to sections, cards, and proof items
-  const revealElements = document.querySelectorAll('.reveal-on-scroll, .proof-item, .flagship-card, .menu-card, .friction-card, .review-card');
-  revealElements.forEach((el, idx) => {
-    el.classList.add('reveal-item');
-    if (!el.getAttribute('data-delay')) {
-      el.setAttribute('data-delay', (idx % 4) * 80);
-    }
-    scrollObserver.observe(el);
-  });
-
-  // 4. Pre-Order WhatsApp Generator Modal
+  // 3. Pre-Order WhatsApp Modal Generator
   const modalOverlay = document.getElementById('preorder-modal');
   const openModalBtns = document.querySelectorAll('.open-preorder-modal');
   const closeModalBtn = document.getElementById('modal-close-btn');
   const preorderForm = document.getElementById('preorder-form');
 
   function openModal(dishName = '') {
-    modalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    
-    if (dishName && document.getElementById('select-dish')) {
-      const selectDish = document.getElementById('select-dish');
-      for (let option of selectDish.options) {
-        if (option.value.toLowerCase().includes(dishName.toLowerCase())) {
-          option.selected = true;
-          break;
+    if (modalOverlay) {
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      if (dishName && document.getElementById('select-dish')) {
+        const selectDish = document.getElementById('select-dish');
+        for (let option of selectDish.options) {
+          if (option.value.toLowerCase().includes(dishName.toLowerCase())) {
+            option.selected = true;
+            break;
+          }
         }
       }
     }
   }
 
   function closeModal() {
-    modalOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    if (modalOverlay) {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 
   openModalBtns.forEach(btn => {
@@ -154,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Direct WhatsApp Button Helper
+  // Direct WhatsApp Helper
   const directWaBtns = document.querySelectorAll('.direct-wa-btn');
   directWaBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -169,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Header Scroll Shadow & Sticky Mobile Bar Logic
+  // 4. Header Shadow & Sticky Mobile Bar
   const header = document.getElementById('main-header');
   const heroSection = document.getElementById('hero');
   const stickyBar = document.querySelector('.mobile-sticky-bar');
@@ -177,14 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     
-    // Header shadow
-    if (scrollY > 40) {
-      header.style.boxShadow = '0 4px 16px rgba(110, 40, 20, 0.08)';
-    } else {
-      header.style.boxShadow = 'none';
+    if (header) {
+      if (scrollY > 40) {
+        header.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.12)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
     }
 
-    // Mobile sticky bar reveal after Hero
     if (stickyBar && heroSection) {
       const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
       if (scrollY > heroBottom - 200) {

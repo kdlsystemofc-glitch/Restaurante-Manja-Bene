@@ -1,47 +1,35 @@
-# 01 — BRAND STRATEGY: RESTAURANTE MANJA BENE (REVISED - DIVERGENCE REVIEW)
+# 01 — BRAND STRATEGY: RESTAURANTE MANJA BENE
 
-**Project:** Restaurante Manja Bene  
+**Client:** Restaurante Manja Bene  
 **Niche:** Restaurante / Comida Caseira & Pratos Executivos  
 **Location:** Av. Humberto de Alencar Castelo Branco, 3836 - Assunção, São Bernardo do Campo - SP  
-**Date:** August 11, 2026  
-**Document Version:** 2.0 (Post-Divergence Audit)  
-**Phase:** 01 — Brand Strategy  
+**Date:** August 12, 2026  
+**Document Version:** 2.0 (Redesign)  
+**Visual Thesis:** **"BRAZILIAN CANTINA POP"**  
 
 ---
 
-## 1. BRAND FOUNDATION & DNA
+## 1. BRAND ESSENCE & POSITIONING
 
-### Brand Essence
-**"O Almoço de Raíz que Alimenta o Dia e Dá um Olé na Fome."**  
-O Restaurante Manja Bene não é uma dark kitchen, um fast-food impessoal ou um bistrô gourmet pretensioso. É uma instituição da gastronomia caseira brasileira no Bairro Assunção em São Bernardo do Campo. Com 19 anos de cozinha ininterrupta sob liderança de empreendedoras, a marca representa a fartura no prato, o feijão apurado no caldeirão de barro e a hospitalidade calorosa do verdadeiro almoço de família.
-
-### Positioning Statement
-> *Para trabalhadores, comerciantes e famílias de São Bernardo do Campo que buscam uma refeição verdadeiramente saborosa, farta e honesta, o **Restaurante Manja Bene** é a referência de comida caseira de raiz no Bairro Assunção. Unindo 19 anos de tradição feminina, pratos generosos (R$ 20–40) e os lendários Parmegiana e Feijoada no caldeirão de barro, entregamos o aconchego de casa no salão, na retirada ou no delivery.*
-
-### Value Proposition
-* **Fartura de Raíz:** Pratos generosos e substanciosos (R$ 20 a R$ 40 por pessoa) sem economizar nos ingredientes.
-* **19 Anos de Liderança Feminina:** Uma empresa de empreendedoras dedicada a acolher e alimentar a comunidade do ABC desde 2007.
-* **Patrimônio Culinário Local:** O Parmegiana mais elogiado da região e a Feijoada completa servida no caldeirão de barro.
-* **Autenticidade sem Máscaras:** Comida de verdade com fotos reais dos pratos da casa, sem retoques artificiais.
+* **Brand Essence:** "O Almoço Generoso de Raíz que Dá um Olé na Fome".
+* **Positioning:** Restaurante tradicional de comida caseira farta e acolhedora no Bairro Assunção, fundado em 2007 (19 anos de história), liderado por mulheres empreendedoras, que oferece o verdadeiro tempero de família no ABC paulista com preço justo (R$ 20-40).
+* **Tagline Oficial:** *"Dê um olé na sua fome."* (Confirmado no totem físico do restaurante `imgi_44.jpg`).
 
 ---
 
-## 2. GOLDEN CIRCLE
+## 2. THE VISUAL THESIS: "BRAZILIAN CANTINA POP"
 
-* **WHY:** Existimos para renovar a energia e a alegria do dia das pessoas com a fartura e a verdade da comida caseira brasileira.
-* **HOW:** Preparando pratos diariamente com ingredientes frescos, receitas mantidas há 19 anos por uma gestão de empreendedoras, servindo em caldeirão de barro e mantendo preços justos (R$ 20-40).
-* **WHAT:** Refeições caseiras completas, Parmegianas artesanais, Feijoadas completas, pratos executivos diários, disponíveis para consumo no salão, retirada expressa ou entrega.
-
----
-
-## 3. VERBAL IDENTITY & MESSAGING SYSTEM
-
-* **Tone of Voice:** Acolhedor, farto, autêntico, direto e alegre (*"Dê um olé na sua fome"*).
-* **Core Messages:**
-  1. *"Comida caseira de verdade, fartura no prato e tempero de família desde 2007."*
-  2. *"Dê um olé na sua fome com o verdadeiro tempero caseiro de São Bernardo."*
-  3. *"Antecipe seu pedido pelo WhatsApp até as 11h30 e garanta seu almoço sem espera!"*
+Rejection of generic, quiet cream restaurant templates. Manja Bene is redefined with:
+* **Energy & Warmth:** Bold tomato red (`#C8232B`), golden cheese yellow (`#F59E0B`), couve herb green (`#15803D`), and crisp cream backgrounds.
+* **Massive Personality:** Oversized typography (*Bricolage Grotesque* 900), graphic stickers, angled food labels, and energetic marquees.
+* **Generosity & Scale:** Photography of real fartos pratos (Feijoada no caldeirão `imgi_16.webp`, Parmegiana borbulhante `imgi_15.webp`) breaking boundary lines.
 
 ---
 
-BRAND STRATEGY REVISED — READY FOR DESIGN SYSTEM
+## 3. KEY DIFFERENTIATORS
+
+1. **19 Anos de Tradição:** Fundado em 2007 no Bairro Assunção em São Bernardo do Campo.
+2. **Empresa de Empreendedoras:** Liderança 100% feminina com carinho em cada refeição.
+3. **4.6★ no Google Maps:** Mais de 740 avaliações reais de clientes satisfeitos.
+4. **Feijoada no Caldeirão & Parmegiana do ABC:** Pratos ícones preparados diariamente.
+5. **Preço Acessível:** Refeições fartas de R$ 20,00 a R$ 40,00 por pessoa.
